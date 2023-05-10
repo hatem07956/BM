@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build with Gradle
-        run: /BM/spring-boot-app/gradlew build
+        run: ./spring-boot-app/gradlew build
       - name: Run Checkstyle
-        run: /BM/spring-boot-app/gradlew checkstyleMain
+        run: ./spring-boot-app/gradlew checkstyleMain
 
