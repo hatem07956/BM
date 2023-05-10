@@ -1,1 +1,16 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Run Checkstyle
+        run: ./gradlew checkstyleMain
 
