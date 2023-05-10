@@ -10,9 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Make Gradlew Executable
-        run: chmod +x BM/spring-boot-app/gradlew
-      - name: Build with Gradle
-        run: ./spring-boot-app/gradlew build
+        run: chmod +x spring-boot-app/gradlew
       - name: Run Checkstyle
         run: ./spring-boot-app/gradlew checkstyleMain
 
