@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Make Gradlew Executable
         run: chmod +x spring-boot-app/gradlew
-      - name: Build with Gradle
+      - name: Build with Gradle project
         run: ./spring-boot-app/gradlew build
       - name: Run Checkstyle
         run: ./spring-boot-app/gradlew checkstyleMain
