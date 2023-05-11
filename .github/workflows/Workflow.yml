@@ -13,6 +13,6 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle project
         run: ./gradlew build
-      - name : Copy file to homee
-        run  : cp build/libs/*.jar $GITHUB_WORKSPACE
+      - name: Run Checkstyle
+        run: ./gradlew checkstyleMain
 
