@@ -21,7 +21,7 @@ jobs:
       - name: Build with Gradle project #Build the project
         run: ./gradlew build
 
-      - #name: Run Checkstyle   #Lint stage
+      #- name: Run Checkstyle   #Lint stage
         #run: ./gradlew checkstyleMain
 
       - name: Run Unit Tests  # Test stage
