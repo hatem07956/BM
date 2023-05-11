@@ -34,7 +34,7 @@ dependencies {
 }
 
 sourceSets {
-	main {
+	mySourceSet {
 		java {
 			srcDirs = ['src/main/java/com/example/demo']
 		}
