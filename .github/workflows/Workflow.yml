@@ -13,6 +13,4 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle project
         run: ./gradlew build
-      - name: Run Checkstyle
-        run: ./gradlew checkstyleMain
 
