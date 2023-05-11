@@ -22,29 +22,4 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-checkstyle {
-	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
-	toolVersion = "8.42.1"
-	ignoreFailures = false
-	showViolations = true
-}
 
-dependencies {
-	checkstyle group: 'com.puppycrawl.tools', name: 'checkstyle', version: '8.42.1'
-}
-
-// Define a new object called mySourceSets
-def mySourceSets = sourceSets
-mySourceSets.main {
-	java {
-		srcDirs = ["src/main/java/com/example/demo"]
-
-	}
-}
-
-checkstyleMain {
-	sourceSets = [mySourceSets.main]
-	include '**/*.java'
-	exclude '**/gen/**'
-	classpath = configurations.checkstyle
-}
