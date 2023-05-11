@@ -12,7 +12,7 @@ jobs:
       - name: Make Gradlew Executable
         run: chmod +x spring-boot-app/gradlew
       - name: Build with Gradle project
-        run: ./spring-boot-app/gradlew build
+        run: ./gradlew build
       - name: Run Checkstyle
-        run: ./spring-boot-app/gradlew checkstyleMain
+        run: ./gradlew checkstyleMain
 
