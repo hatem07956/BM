@@ -3,7 +3,7 @@ name: Lint
 on: [push]
 
 jobs:
-  lint&Test:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
