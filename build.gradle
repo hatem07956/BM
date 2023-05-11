@@ -28,3 +28,7 @@ checkstyle {
 	ignoreFailures = false
 	showViolations = true
 }
+
+dependencies {
+	checkstyle 'com.puppycrawl.tools:checkstyle:8.42.1'
+}
