@@ -9,9 +9,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+            java-version: 11
       - name: Make Gradlew Executable
         run: chmod +x gradlew
-      - name: Build with Gradle project
+      - name: Build with Gradle project #Build the project
         run: ./gradlew build
       - name: Run Checkstyle   #Lint stage
         run: ./gradlew checkstyleMain
