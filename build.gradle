@@ -25,6 +25,15 @@ tasks.named('test') {
 checkstyle {
 	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
 	toolVersion = "8.42.1"
+	ignoreFailures = false
+	showViolations = true
+}
+
+task checkstyleMain(type: Checkstyle) {
 	sourceSets = [sourceSets.main]
+	include '**/*.java'
+	exclude '**/gen/**'
 	classpath = configurations.checkstyle
 }
+
+checkstyleMain.mustRunAfter compileJava
