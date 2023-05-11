@@ -26,7 +26,5 @@ checkstyle {
 	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
 	toolVersion = "8.42.1"
 	sourceSets = [sourceSets.main]
-	include '**/*.java'
-	exclude '**/gen/**'
 	classpath = configurations.checkstyle
 }
