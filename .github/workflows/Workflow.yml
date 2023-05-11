@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
             java-version: 11
+            distribution: 'adopt'
       - name: Make Gradlew Executable
         run: chmod +x gradlew
       - name: Build with Gradle project #Build the project
