@@ -22,6 +22,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 checkstyle {
+
 	toolVersion = '8.44'
-	configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+	configFile = file("config/checkstyle/checkstyle.xml")
 }
