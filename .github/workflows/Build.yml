@@ -1,14 +1,14 @@
-name: Build and Deploy Docker Image
+name: Build Docker Image
 
 on:
   push:
     branches: [main]
-
+#needs: [lint, test]
 jobs:
 
   Build:
     runs-on: ubuntu-latest
-    #needs: [lint, test]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
           context: .
           file: ./DockerFile.dockerfile
           push: true
-          tags: hatem95/bm-image:test:v1.0
+          tags: hatem95/bm-image:test,v1.0
         env:
             DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
             DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}

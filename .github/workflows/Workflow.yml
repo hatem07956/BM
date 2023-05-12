@@ -1,4 +1,4 @@
-name: workflow
+name: lint,test&Sonar
 
 on: [push]
 
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Make Gradlew Executable
-        run: chmod +x gradlew
+        run:  chmod +x gradlew
       - name: Run Unit Tests  # Test stage
         run: ./gradlew test
 
