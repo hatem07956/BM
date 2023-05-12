@@ -19,7 +19,7 @@ jobs:
           context: .
           file: ./DockerFile.dockerfile
           push: true
-          tags: hatem95/bm-image/test:v1.0
+          tags: hatem95/bm-image:test,v1.0
 
   print-message:
     runs-on: ubuntu-latest
