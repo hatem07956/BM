@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Run Unit Tests  # Test stage
-        run: ./gradlew test --no-daemon
+        run: ./gradlew test 
 
   #Sonar:
       #runs-on: ubuntu-latest
