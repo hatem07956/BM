@@ -1,8 +1,9 @@
-name: Lint
+name: workflow
 
 on: [push]
 
 jobs:
+
   lint:
     runs-on: ubuntu-latest
 
@@ -18,15 +19,24 @@ jobs:
 
       - name: Make Gradlew Executable
         run: chmod +x gradlew
+
       - name: Build with Gradle project #Build the project
         run: ./gradlew build
 
       #- name: Run Checkstyle   #Lint stage
         #run: ./gradlew checkstyleMain
 
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Run Unit Tests  # Test stage
         run: ./gradlew test --no-daemon
 
+  #Sonar:
+      #runs-on: ubuntu-latest
+      #steps:
       #- name: SonarQube Scan
        # uses: sonar-source/sonarqube-scan-action@v1
         #with:
