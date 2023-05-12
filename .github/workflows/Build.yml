@@ -21,7 +21,7 @@ jobs:
           push: true
           tags: hatem95/bm-image:test,v1.0
           env:
-            DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+            #DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
             DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
 
   print-message:
