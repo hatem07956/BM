@@ -30,7 +30,7 @@ jobs:
       - name: Make Gradlew Executable
         run: chmod +x gradlew
       - name: Run Unit Tests  # Test stage
-        run: ./gradlew tests
+        run: ./gradlew test
 
   #Sonar:
       #runs-on: ubuntu-latest
