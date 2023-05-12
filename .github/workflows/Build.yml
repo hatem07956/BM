@@ -24,4 +24,4 @@ jobs:
     steps:
       - name: Print message
         run:
-          echo "Workflow complete!"        tags: my-image:${{ github.sha }}
+          echo "Workflow complete!"
