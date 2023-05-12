@@ -18,7 +18,8 @@ jobs:
         with:
           context: .
           file: ./DockerFile.dockerfile
-          push: false
+          push: true
+          repository: hatem95/bm-image
 
   print-message:
     runs-on: ubuntu-latest
