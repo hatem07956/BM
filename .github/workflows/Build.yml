@@ -19,7 +19,8 @@ jobs:
           context: .
           file: ./DockerFile.dockerfile
           push: true
-          repository: hatem95/bm-image
+          repository: hatem95/bm-image/test
+          tag: latest
 
   print-message:
     runs-on: ubuntu-latest
