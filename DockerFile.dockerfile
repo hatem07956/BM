@@ -2,7 +2,7 @@ FROM openjdk:11-jdk-slim as build
 #WORKDIR /app
 COPY . .
 
-RUN ./gradlew clean build
+RUN ./gradlew build
 
 FROM openjdk:11-jre-slim
 
