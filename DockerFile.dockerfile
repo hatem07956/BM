@@ -1,7 +1,7 @@
 FROM openjdk:11-jdk-slim as build
 #WORKDIR /app
 COPY . .
-
+RUN chmod +x gradlew
 RUN ./gradlew build
 
 FROM openjdk:11-jre-slim
