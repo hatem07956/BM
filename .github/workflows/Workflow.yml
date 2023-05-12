@@ -27,7 +27,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Make Gradlew Executable
+        run: chmod +x gradlew
       - name: Run Unit Tests  # Test stage
         run: ./gradlew tests
 
