@@ -1,7 +1,40 @@
-<?xml version="1.0"?>
-<pmd>
-  <rule name="UnusedLocalVariable" message="Avoid unused local variables such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedLocalVariable"/>
-  <rule name="UnusedPrivateField" message="Avoid unused private fields such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedPrivateField"/>
-  <rule name="UnusedFormalParameter" message="Avoid unused formal parameters such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedFormalParameter"/>
-  <rule name="UnusedImports" message="Avoid unused imports such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedImports"/>
-</pmd>
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="My Custom PMD Ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        My custom PMD ruleset for enforcing Java code style
+    </description>
+
+    <rule name="AvoidComplexConditionals"
+          language="java"
+          message="Avoid complex conditionals in your Java code"
+          class="net.sourceforge.pmd.lang.java.rule.basic.BasicAvoidComplexConditionRule">
+        <description>
+            This rule detects complex conditionals that can be simplified
+        </description>
+        <priority>3</priority>
+        <properties>
+            <property name="threshold" value="3"/>
+        </properties>
+    </rule>
+
+    <rule name="AvoidEmptyBlocks"
+          language="java"
+          message="Avoid empty blocks in your Java code"
+          class="net.sourceforge.pmd.lang.java.rule.empty.EmptyBlockRule">
+        <description>
+            This rule detects empty blocks that can be removed
+        </description>
+        <priority>3</priority>
+        <properties>
+            <property name="allowEmptyCatch" value="false"/>
+            <property name="allowEmptyFinally" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- add any additional rules here -->
+
+</ruleset>
