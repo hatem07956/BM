@@ -57,8 +57,42 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with:
           projectBaseDir: .
-           
+
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          INPUT_PROJECTKEY: bm-dashboard
+      name: Build
+
+      on:
+        push:
+          branches:
+            - main
+
+
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+
+          - name: Set up JDK 11
+            uses: actions/setup-java@v1
+            with:
+                java-version: 11
+                distribution: 'adopt'
+          - name: Cache SonarQube packages
+            uses: actions/cache@v1
+            with:
+                path: ~/.sonar/cache
+                key: ${{ runner.os }}-sonar
+                restore-keys: ${{ runner.os }}-sonar
+          - name: Cache Gradle packages
+            uses: actions/cache@v1
+            with:
+                path: ~/.gradle/caches
+                key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+                restore-keys: ${{ runner.os }}-gradle
+          - name: Build and analyze
+            env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
