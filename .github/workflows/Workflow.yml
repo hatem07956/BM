@@ -19,7 +19,7 @@ jobs:
         run: ./gradlew build
 
       - name: Run Checkstyle
-        uses: wfhartford/checkstyle-action@v1
+        uses: asaasdev/checkstyle-action@v1
         with:
           config: ./config/checkstyle/checkstyle.xml
           source_files: 'src/**/*.java'
