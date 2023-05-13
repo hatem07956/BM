@@ -53,4 +53,4 @@ jobs:
           projectName: "bank misr"
           projectKey: "bm-dashboard"
           serverUrl: ${{ secrets.SONAR_HOST_URL}}
-          token: ${{ secrets.SONARQUBE_TOKEN }}
+          token: ${{ secrets.SONAR_TOKEN }}
