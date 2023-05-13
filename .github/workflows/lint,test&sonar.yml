@@ -18,11 +18,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+
       - name: change permission
         run: chmod +x gradlew
+
       - name: Run PMD
         run: ./gradlew pmdMain
         continue-on-error: true
+
       - name: Upload PMD report
         uses: actions/upload-artifact@v2
         with:
