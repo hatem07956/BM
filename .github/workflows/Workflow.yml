@@ -12,10 +12,15 @@ jobs:
       - name: Checkout code # checks out the repository
         uses: actions/checkout@v2
 
+      - name: change permission
+        run: chmod +x gradlew
+        
       - name: Build with Gradle
         run: ./gradlew build
+
       - name: Run Checkstyle   #Lint stage using checkstyle
         run: ./gradlew checkstyleMain
+
       - name: Save Checkstyle report
         uses: actions/upload-artifact@v2
         with:
