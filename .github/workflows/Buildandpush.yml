@@ -25,5 +25,5 @@ jobs:
           file: ./DockerFile.dockerfile #dockerfile path
           push: true # true to push the image
           tags:  |
-              hatem95/bm-image:${{ github.sha }} #the image of the image can be hardcoded or diff. her will be changed every time
+              hatem95/bm-image:${{ github.sha }}
               hatem95/bm-image:latest  # Add a new tag for latest
