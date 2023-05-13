@@ -47,7 +47,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: SonarQube Scan
-        uses: sonar-source/sonarqube-scan-action@v1
+        uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
           projectName: "bank misr"
