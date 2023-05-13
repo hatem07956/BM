@@ -23,7 +23,7 @@ tasks.named('test') {
 }
 
 
-task checkstyleMain(type: Checkstyle) {
+task myCheckstyleMain(type: Checkstyle) {
 	source 'src/main/java'
 	include '**/*.java'
 	classpath = configurations.checkstyle
@@ -34,4 +34,3 @@ task checkstyleMain(type: Checkstyle) {
 		html.destination file("${project.rootDir}/checkstyle-report.html")
 	}
 }
-
