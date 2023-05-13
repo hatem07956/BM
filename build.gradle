@@ -28,3 +28,7 @@ pmd {
 	toolVersion = '6.37.0'
 	ruleSetFiles = files('pmd-rules.xml')
 }
+dependencies {
+	// other dependencies
+	pmd 'net.sourceforge.pmd:pmd-java:6.37.0'
+}
