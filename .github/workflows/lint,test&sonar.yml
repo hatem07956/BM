@@ -24,7 +24,7 @@ jobs:
         run: ./gradlew build
 
       - name: PMD Lint
-        uses: pmd/pmd-github-action@v1.4.0
+        uses: pmd/pmd-github-action@v1
         with:
             rulesets: 'pmd-rules.xml'
   test:
