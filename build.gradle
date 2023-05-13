@@ -22,10 +22,8 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.named('checkstyleMain') {
-	name = 'myCheckstyleMain'
-}
-task mycheckstyleMain(type: Checkstyle) {
+
+task checkstyleMain(type: Checkstyle) {
 	source 'src/main/java'
 	include '**/*.java'
 	classpath = configurations.checkstyle

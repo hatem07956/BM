@@ -19,7 +19,7 @@ jobs:
         run: ./gradlew build
 
       - name: Run Checkstyle   #Lint stage using checkstyle
-        run: ./gradlew myCheckstyle
+        run: ./gradlew checkstyleMain
 
       - name: Save Checkstyle report
         uses: actions/upload-artifact@v2
