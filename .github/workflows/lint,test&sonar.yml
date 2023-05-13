@@ -14,7 +14,7 @@ jobs:
 
       - name: change permission
         run: chmod +x gradlew
-        
+
       - name: Build with Gradle
         run: ./gradlew build
 
@@ -24,8 +24,8 @@ jobs:
       - name: Save Checkstyle report
         uses: actions/upload-artifact@v2
         with:
-            ame: checkstyle-report
-            path: ./main.html
+            name: checkstyle-report
+            path: ./checkstyle.html
   test:
 
     runs-on: ubuntu-latest
