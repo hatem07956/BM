@@ -1,6 +1,6 @@
 name: Build Docker Image
 
-#on: [push]
+on: [pull_request]
 
 #needs: [lint, test]
 
