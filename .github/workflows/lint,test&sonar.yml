@@ -58,7 +58,8 @@ jobs:
         run: chmod +x gradlew
 
       - name: sonar run
-        run: ./gradlew build sonar --info
-        env:
+        run: ./gradlew build sonar
+        uses:
+        with:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
