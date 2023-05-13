@@ -18,14 +18,14 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Run Checkstyle   #Lint stage using checkstyle
-        run: ./gradlew myCheckstyleMain
+      - name: Checkstyle
+        run: ./gradlew checkstyleMain
 
-      - name: Save Checkstyle report
-        uses: actions/upload-artifact@v2
-        with:
-            name: checkstyle-report
-            path: ./checkstyle-report.html
+      #- name: Save Checkstyle report
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #      name: checkstyle-report
+      #     path: ./checkstyle-report.html
   test:
 
     runs-on: ubuntu-latest

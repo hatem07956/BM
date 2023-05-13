@@ -22,15 +22,19 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-
-task myCheckstyleMain(type: Checkstyle) {
-	source 'src/main/java'
-	include '**/*.java'
-	classpath = configurations.checkstyle
+checkstyle {
+	toolVersion = "8.46"
 	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+	ignoreFailures = false
+	showViolations = true
+	enable = true
+	sourceSets = [sourceSets.main]
+}
+
+tasks.withType(Checkstyle) {
 	reports {
-		xml.enabled = true
-		html.enabled = true
-		html.destination file("${project.rootDir}/checkstyle-report.html")
+		xml.required = false
+		html.required = true
+		html.destination = file("${project.rootDir}/checkstyle-report.html")
 	}
 }
