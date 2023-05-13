@@ -27,7 +27,6 @@ checkstyle {
 	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
 	ignoreFailures = false
 	showViolations = true
-	enable = true
 	sourceSets = [sourceSets.main]
 }
 
