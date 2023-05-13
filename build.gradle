@@ -22,7 +22,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-
+pmd {
+	ruleSets = ['java-basic']
+	toolVersion = '6.39.0'
+}
 
 pmd {
 	toolVersion = '6.39.0'
