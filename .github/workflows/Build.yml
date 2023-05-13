@@ -1,0 +1,29 @@
+name: Build Docker Image
+
+on: [push]
+
+#needs: [lint, test]
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code # checks out the repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub #Login to dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image #build and push docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./DockerFile.dockerfile #dockerfile path
+          push: true # true to push the image
+          tags: hatem95/bm-image:${{ github.sha }} #the image of the image can be hardcoded or diff. her will be changed every time
+
