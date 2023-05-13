@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: bm-image
-          image: hatem95/bm-image:f7159ceca1044b11333863373e34ea550e2e4330
+          image: hatem95/bm-image:014b0d139ea52ad0ec3d378aa3ba7ba0d9659b9d
           ports:
             - containerPort: 8080

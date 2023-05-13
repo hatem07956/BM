@@ -8,5 +8,5 @@ spec:
     type: ClusterIP # by default it is ClusterIP but we can confirm the type.
   ports:
     - name: http
-      port: 80
-      targetPort: 8080
+      port: 80  #Service port
+      targetPort: 8080 #container port

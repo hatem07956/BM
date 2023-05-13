@@ -22,10 +22,11 @@ jobs:
 
         - name: Set Kubeconfig
           run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig.yaml
+#the branch if the name of the Git branch for the current workflow
 
         - name: Deploy to AKS
           run: |
-            if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
+            if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then 
               kubectl apply -f kubernetes/deployment.yaml --namespace=dev
               kubectl apply -f kubernetes/service.yaml --namespace=dev
               kubectl apply -f ingress.yaml --namespace=dev
