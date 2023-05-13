@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: change permission
-        run: chmod +x gradlew
+        run:  chmod +x gradlew
 
       - name: Build with Gradle
-        run:  ./gradlew cleanBuildCache
+        run:  ./gradlew build
 
       - name: Checkstyle
         run: ./gradlew checkstyleMain

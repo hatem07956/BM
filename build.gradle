@@ -23,7 +23,6 @@ tasks.named('test') {
 }
 
 checkstyle {
-	toolVersion = "8.46"
 	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
 	ignoreFailures = false
 	showViolations = true
