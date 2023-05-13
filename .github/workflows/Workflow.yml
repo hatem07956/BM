@@ -5,19 +5,20 @@ on: [push]
 jobs:
 
   lint:
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Make Gradlew Executable
+      - name: Make Gradlew Executable # change permission to make script executable
         run: chmod +x gradlew
 
       - name: Build with Gradle project #Build the project
         run: ./gradlew build
 
-      #- name: Run Checkstyle   #Lint stage
+      #- name: Run Checkstyle   #Lint stage using checkstyle
       #   run: ./gradlew checkstyleMain
 
   test:
@@ -27,7 +28,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Make Gradlew Executable
+      - name: Make Gradlew Executable # change permission to make script executable
         run:  chmod +x gradlew
       - name: Run Unit Tests  # Test stage
         run: ./gradlew test
