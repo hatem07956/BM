@@ -25,7 +25,7 @@ tasks.named('test') {
 tasks.named('checkstyleMain') {
 	name = 'myCheckstyleMain'
 }
-task checkstyleMain(type: Checkstyle) {
+task mycheckstyleMain(type: Checkstyle) {
 	source 'src/main/java'
 	include '**/*.java'
 	classpath = configurations.checkstyle
