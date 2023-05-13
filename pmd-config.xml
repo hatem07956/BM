@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<pmd>
+  <rule name="UnusedLocalVariable" message="Avoid unused local variables such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedLocalVariable"/>
+  <rule name="UnusedPrivateField" message="Avoid unused private fields such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedPrivateField"/>
+  <rule name="UnusedFormalParameter" message="Avoid unused formal parameters such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedFormalParameter"/>
+  <rule name="UnusedImports" message="Avoid unused imports such as ''{0}''." class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedImports"/>
+</pmd>

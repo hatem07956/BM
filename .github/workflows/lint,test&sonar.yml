@@ -17,13 +17,15 @@ jobs:
 
       - name: Build with Gradle
         run:  ./gradlew build
-      - name: Lint with SpotBugs
-        run: ./gradlew findbugsHtmlReport
-      - name: Upload SpotBugs HTML Report
+
+      - name: Run PMD
+        run: ./gradlew pmdMain
+        continue-on-error: true
+      - name: Upload PMD report
         uses: actions/upload-artifact@v2
         with:
-          name: spotbugs-html-report
-
+          name: pmd-report
+          path: main.xml
       #- name: Save Checkstyle report
       #  uses: actions/upload-artifact@v2
       #  with:
