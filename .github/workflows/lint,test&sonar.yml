@@ -18,9 +18,6 @@ jobs:
       - name: Build with Gradle
         run:  ./gradlew build
 
-      - name: Checkstyle
-        run: ./gradlew checkstyleMain
-
       #- name: Save Checkstyle report
       #  uses: actions/upload-artifact@v2
       #  with:

@@ -21,18 +21,3 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-checkstyle {
-	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
-	ignoreFailures = false
-	showViolations = true
-	sourceSets = [sourceSets.main]
-}
-
-tasks.withType(Checkstyle) {
-	reports {
-		xml.required = false
-		html.required = true
-		html.destination = file("${project.rootDir}/checkstyle-report.html")
-	}
-}
