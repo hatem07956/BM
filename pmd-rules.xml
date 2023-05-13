@@ -1,40 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="My Custom PMD Ruleset"
-         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
-
-    <description>
-        My custom PMD ruleset for enforcing Java code style
-    </description>
-
-    <rule name="AvoidComplexConditionals"
-          language="java"
-          message="Avoid complex conditionals in your Java code"
-          class="net.sourceforge.pmd.lang.java.rule.basic.BasicAvoidComplexConditionRule">
-        <description>
-            This rule detects complex conditionals that can be simplified
-        </description>
+<?xml version="1.0"?>
+<pmd version="6.39.0" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <rule name="Avoid using if statement without curly braces"
+          since="1.0.0"
+          class="net.sourceforge.pmd.lang.java.rule.basic.AvoidBranchingStatementAsLastInLoopRule">
+        <description>Avoid using an if statement without curly braces. This can lead to subtle bugs when the code is modified.</description>
         <priority>3</priority>
-        <properties>
-            <property name="threshold" value="3"/>
-        </properties>
     </rule>
-
-    <rule name="AvoidEmptyBlocks"
-          language="java"
-          message="Avoid empty blocks in your Java code"
-          class="net.sourceforge.pmd.lang.java.rule.empty.EmptyBlockRule">
-        <description>
-            This rule detects empty blocks that can be removed
-        </description>
+    <rule name="Avoid using a loop iterator in a lambda"
+          since="6.25.0"
+          class="net.sourceforge.pmd.lang.java.rule.lambda.LambdaForEachParameterReusableRule">
+        <description>Avoid using a loop iterator in a lambda. This can lead to subtle bugs when the code is modified.</description>
         <priority>3</priority>
-        <properties>
-            <property name="allowEmptyCatch" value="false"/>
-            <property name="allowEmptyFinally" value="false"/>
-        </properties>
     </rule>
-
-    <!-- add any additional rules here -->
-
-</ruleset>
+</pmd>
