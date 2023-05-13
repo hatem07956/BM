@@ -4,6 +4,7 @@ on:
     push:
       branches:
         - main
+        - dev
 
 jobs:
     deploy:
@@ -11,21 +12,27 @@ jobs:
       env:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        KUBECONFIG: ${{ secrets.KUBECONFIG }} # This secret contains the Kubernetes configuration for the AKS cluster, including the cluster endpoint, certificate, and authentication information.
       steps:
 
         - name: Install kubectl
           run: |
             az aks install-cli
+#In the Set Kubeconfig step, the workflow decodes the secrets.KUBECONFIG secret and writes it to a file named kubeconfig.yaml. This file is used by the kubectl command-line tool to connect to the AKS cluster and perform operations on Kubernetes resources.
 
         - name: Set Kubeconfig
           run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig.yaml
 
         - name: Deploy to AKS
           run: |
-            kubectl apply -f kubernetes/deployment.yaml
-            kubectl apply -f kubernetes/service.yaml
-            kubectl set image deployment/your-deployment-name your-container-name=your-dockerhub-username/your-image-name:latest
-            kubectl rollout restart deployment/your-deployment-name
+            if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
+              kubectl apply -f kubernetes/deployment.yaml --namespace=dev
+              kubectl apply -f kubernetes/service.yaml --namespace=dev
+              kubectl apply -f ingress.yaml --namespace=dev
+            
+            elif [[ ${{ github.ref }} == 'refs/heads/prod' ]]; then
+              kubectl apply -f kubernetes/deployment.yaml --namespace=prod
+              kubectl apply -f kubernetes/service.yaml --namespace=prod
+              kubectl apply -f ingress.yaml --namespace=prod
           env:
             KUBECONFIG: kubeconfig.yaml

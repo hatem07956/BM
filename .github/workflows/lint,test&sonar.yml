@@ -17,6 +17,12 @@ jobs:
 
       - name: Build with Gradle
         run:  ./gradlew build
+      - name: Lint with SpotBugs
+        run: ./gradlew findbugsHtmlReport
+      - name: Upload SpotBugs HTML Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: spotbugs-html-report
 
       #- name: Save Checkstyle report
       #  uses: actions/upload-artifact@v2

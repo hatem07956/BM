@@ -1,18 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress-bm
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: bm-ingress
 spec:
   rules:
-    - host: your-domain.com
+    - host: your-bm.com
       http:
         paths:
-          - path: /my-app
-            pathType: Prefix
-            backend:
+          - backend:
               service:
-                name: your-service-name
-                port:
-                  name: http
+                name: bm-service
+                port: 80
+
