@@ -20,22 +20,15 @@ jobs:
           distribution: 'adopt'
 
       - name: change permission
-        run: chmod +x gradlew
+        run:  chmod +x gradlew
 
-      - name: Run PMD
-        run: ./gradlew pmdMain
-        continue-on-error: true
+      - name: Build with Gradle
+        run: ./gradlew build
 
-      - name: Upload PMD report
-        uses: actions/upload-artifact@v2
+      - name: PMD Lint
+        uses: pmd/pmd-github-action@v1
         with:
-          name: pmd-report
-          path: main.xml
-      #- name: Save Checkstyle report
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #      name: checkstyle-report
-      #     path: ./checkstyle-report.html
+            rulesets: 'pmd-rules.xml'
   test:
 
     runs-on: ubuntu-latest

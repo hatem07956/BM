@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
-	id 'pmd'
+
 }
 
 group = 'com.example'
@@ -22,16 +22,3 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-pmd {
-	ruleSets = ['java-basic']
-	toolVersion = '6.39.0'
-}
-
-pmd {
-	toolVersion = '6.39.0'
-	ruleSetFiles = files('pmd-rules.xml')
-}
-dependencies {
-	// other dependencies
-	pmd 'net.sourceforge.pmd:pmd-java:6.39.0'
-}
