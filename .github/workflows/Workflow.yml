@@ -21,10 +21,10 @@ jobs:
       - name: Run Checkstyle
         uses: checkstyle/checkstyle-action@v0.5.0
         with:
-        config: ./config/checkstyle/checkstyle.xml
-        checkstyle_version: 8.45
-        source_files: 'src/**/*.java'
-        output_file: ./checkstyle-result.xml
+          config: ./config/checkstyle/checkstyle.xml
+          checkstyle_version: 8.45
+          source_files: 'src/**/*.java'
+          output_file: ./checkstyle-result.xml
       #- name: Run Checkstyle   #Lint stage using checkstyle
       #   run: ./gradlew checkstyleMain
 
