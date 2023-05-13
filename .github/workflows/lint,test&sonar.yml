@@ -54,12 +54,11 @@ jobs:
               java-version: 11
               distribution: 'adopt'
 
-      - name: Build and analyze
-        env:
-              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-              SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       - name: Make Gradlew Executable # change permission to make script executable
         run: chmod +x gradlew
-        
+
       - name: sonar run
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: ./gradlew build sonar --info
