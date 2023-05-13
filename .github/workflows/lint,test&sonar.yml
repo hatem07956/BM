@@ -51,7 +51,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
-          projectName: "bank misr"
-          projectKey: "bm-dashboard"
+        env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
