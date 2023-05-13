@@ -3,17 +3,17 @@
          xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
-         
-    <rule name="Avoid unused local variables" language="java" 
-          class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedLocalVariable">
-        <description>Unused local variables take up memory and can lead to confusion.</description>
+    <description><![CDATA[
+        Custom PMD ruleset.
+    ]]></description>
+
+    <rule name="Avoid unused private fields" language="java" class="net.sourceforge.pmd.lang.java.rule.unusedcode.UnusedPrivateField">
+        <description>Unused private fields take up memory and can lead to confusion.</description>
         <priority>3</priority>
     </rule>
-    
-    <rule name="Avoid empty if statements" language="java" 
-          class="net.sourceforge.pmd.lang.java.rule.empty.EmptyIfStmtRule">
-        <description>Empty if statements can cause unintended behavior.</description>
+
+    <rule name="Avoid empty catch blocks" language="java" class="net.sourceforge.pmd.lang.java.rule.empty.EmptyCatchBlock">
+        <description>Empty catch blocks can cause unintended behavior.</description>
         <priority>3</priority>
     </rule>
-    
 </ruleset>
