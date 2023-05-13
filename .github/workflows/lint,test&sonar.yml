@@ -40,16 +40,17 @@ jobs:
       - name: Run Unit Tests  # Test stage
         run: ./gradlew test
 
-  #Sonar:
-      #runs-on: ubuntu-latest
-      #steps:
-      #- name: Checkout code
-      #  uses: actions/checkout@v2
-      #- name: SonarQube Scan
-       # uses: sonar-source/sonarqube-scan-action@v1
-        #with:
-        #projectBaseDir: ./project-dir
-        #projectName: "My Project"
-        #projectKey: "my-project-key"
-        #serverUrl: "http://sonarqube-server-url"
-        #token: ${{ secrets.SONARQUBE_TOKEN }}
+  Sonar:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: SonarQube Scan
+        uses: sonar-source/sonarqube-scan-action@v1
+        with:
+        projectBaseDir: .
+        projectName: "bank misr"
+        projectKey: "bm-dashboard"
+        serverUrl: "secrets.SONAR_HOST_URL"
+        token: ${{ secrets.SONARQUBE_TOKEN }}
