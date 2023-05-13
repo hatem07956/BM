@@ -1,6 +1,6 @@
 name: lint,test&Sonar
 
-on: [pull_request]
+on: [push]
 
 jobs:
 
