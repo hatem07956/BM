@@ -12,15 +12,15 @@ jobs:
       - name: Checkout code # checks out the repository
         uses: actions/checkout@v2
 
-      - name: Run Checkstyle
-        uses: asaasdev/checkstyle-action@v1
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Run Checkstyle   #Lint stage using checkstyle
+        run: ./gradlew checkstyleMain
+      - name: Save Checkstyle report
+        uses: actions/upload-artifact@v2
         with:
-          config: ./config/checkstyle/checkstyle.xml
-          source_files: 'src/**/*.java'
-          output_file: checkstyle-result.xml
-      #- name: Run Checkstyle   #Lint stage using checkstyle
-      #   run: ./gradlew checkstyleMain
-
+            ame: checkstyle-report
+            path: ./main.html
   test:
 
     runs-on: ubuntu-latest
