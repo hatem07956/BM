@@ -68,7 +68,7 @@ jobs:
           entryPoint: sonar-scanner
           args: >
             -Dsonar.java.binaries=build/classes/java/main
-            -DprojectKey=bm-dashboard
+            -Dsonar.projectKey=bm-dashboard
         env:
           SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
