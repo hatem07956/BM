@@ -17,7 +17,7 @@ jobs:
 
         - name: Install kubectl #install kubectl on the github actions machine
           run: |
-            az aks install-cli
+            sudo az aks install-cli
 #In the Set Kubeconfig step, the workflow decodes the secrets.KUBECONFIG secret and writes it to a file named kubeconfig.yaml. This file is used by the kubectl command-line tool to connect to the AKS cluster and perform operations on Kubernetes resources.
 
         - name: Set Kubeconfig

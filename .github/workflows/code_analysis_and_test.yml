@@ -58,7 +58,7 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with:
           projectBaseDir: .
-
+          properties: sonar-project.properties
         env:
           SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
