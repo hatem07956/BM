@@ -65,7 +65,6 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with:
           projectBaseDir: .
-          entryPoint: sonar-scanner
           args: >
             -Dsonar.java.binaries=build/classes/java/main
             -Dsonar.projectKey=bm-dashboard
