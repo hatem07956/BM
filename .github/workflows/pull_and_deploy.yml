@@ -3,11 +3,12 @@ name: Deploy to AKS
 on:
   workflow_run:
     workflows: ["build_docker_image"]
+
+    branches:
+      - main
+      - dev
     types:
       - completed
-    #branches:
-    #  - main
-    #  - dev
 
 jobs:
     deploy:
