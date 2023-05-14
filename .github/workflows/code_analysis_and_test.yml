@@ -53,6 +53,12 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: 11
+          
+      - name: change permission #change script permission
+        run: chmod +x gradlew
+
+      - name: Build with Gradle #build the code
+        run: ./gradlew build
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
