@@ -60,5 +60,5 @@ jobs:
           projectBaseDir: .
 
         env:
-          SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app/projects"
+          SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
