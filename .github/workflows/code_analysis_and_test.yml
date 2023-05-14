@@ -49,7 +49,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK 11  #java env
+      - name: Set up JDK 11  #java env.
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
