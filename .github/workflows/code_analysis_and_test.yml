@@ -62,7 +62,7 @@ jobs:
         run: ./gradlew build
 
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@2.2.1
+        uses: sonarsource/sonarqube-scan-action@1
         with:
           projectBaseDir: .
           entryPoint: sonar-scanner
@@ -70,5 +70,5 @@ jobs:
             -Dsonar.java.binaries=build/classes/java/main
             -Dsonar.projectKey=bm-dashboard
         env:
-          SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
+          SONAR_HOST_URL: "https://21d3-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
