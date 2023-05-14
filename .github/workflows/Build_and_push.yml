@@ -1,9 +1,9 @@
 name: build_docker_image
-
 on:
   workflow_run:
-    workflows:["code_analysis_and_test"]
-
+    workflows: ["code_analysis_and_test"]
+    types:
+      - completed
 jobs:
 
   Build:
