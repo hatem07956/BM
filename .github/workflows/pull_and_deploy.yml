@@ -1,7 +1,6 @@
 name: Deploy to AKS
 
 on:
-  on:
     workflow_run:
       workflows:["Build_and_push"]
     branches:
