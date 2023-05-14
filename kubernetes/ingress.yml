@@ -7,8 +7,11 @@ spec:
     - host: your-bm.com
       http:
         paths:
-          - backend:
+          - path: /live
+            pathType: Prefix
+            backend:
               service:
                 name: bm-service
-                port: 80
+                port:
+                  name: http
 
