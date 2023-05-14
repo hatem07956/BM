@@ -9,6 +9,7 @@ on:
       - dev
     types:
       - completed
+      - success
 
 jobs:
     deploy:

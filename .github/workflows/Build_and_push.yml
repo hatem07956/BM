@@ -4,6 +4,7 @@ on:
     workflows: ["code_analysis_and_test"]
     types:
       - completed
+      - success
 jobs:
 
   Build:

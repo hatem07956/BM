@@ -67,7 +67,7 @@ jobs:
           projectBaseDir: .
           properties: sonar-project.properties
           extraProperties: |
-            sonar.java.binaries=target/classes
+            sonar.java.binaries=build/classes/java/main
         env:
           SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
