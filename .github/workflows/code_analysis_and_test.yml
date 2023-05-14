@@ -1,4 +1,4 @@
-name: lint,test&Sonar
+name: code_analysis_and_test
 
 on: [push]
 
@@ -53,7 +53,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: 11
-          
+
       - name: change permission #change script permission
         run: chmod +x gradlew
 
@@ -65,6 +65,8 @@ jobs:
         with:
           projectBaseDir: .
           properties: sonar-project.properties
+          extraProperties: |
+            sonar.java.binaries=target/classes
         env:
           SONAR_HOST_URL: "https://11fd-41-236-168-183.ngrok-free.app"
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

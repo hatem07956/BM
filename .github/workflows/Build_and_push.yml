@@ -1,8 +1,8 @@
-name: Build Docker Image
+name: build_docker_image
 
-on: [push]
-
-#needs: [lint, test]
+on:
+  workflow_run:
+    workflows:["code_analysis_and_test"]
 
 jobs:
 
