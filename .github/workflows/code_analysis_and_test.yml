@@ -1,0 +1,73 @@
+name: code_analysis_and_test
+
+on: [push]
+
+jobs:
+
+  Lint:
+
+    runs-on: ubuntu-latest # The job runs on an Ubuntu machine
+
+    steps:
+      - name: Checkout code # checks out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 11  #java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: change permission #change script permission
+        run:  chmod +x gradlew
+
+      - name: Build with Gradle #build the code
+        run: ./gradlew build
+
+      - name: PMD Lint
+        uses: pmd/pmd-github-action@v1.4.0
+        with:
+            rulesets: 'pmd-rules.xml' #user PMD rules xml file
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Make Gradlew Executable # change permission to make script executable
+        run:  chmod +x gradlew
+      - name: Run Unit Tests  # Test stage
+        run: ./gradlew test
+
+
+  Sonar:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 11  #java env.
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: change permission #change script permission
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: SonarQube Scan  #soanr tool
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          projectBaseDir: .   #The directory of the Gradle project to scan “Project in github”The directory of the Gradle project to scan “Project in github”
+          args: >
+            -Dsonar.java.binaries=build/classes/java/main
+            -Dsonar.projectKey=bm-dashboard
+        env:
+          SONAR_HOST_URL: "https://5bbd-41-40-195-155.ngrok-free.app" #  generate public domain name using NGROK
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
