@@ -1,4 +1,4 @@
-name: build_docker_image
+name: build_and_push_docker_image
 on:
   workflow_run:
     workflows: ["code_analysis_and_test"]

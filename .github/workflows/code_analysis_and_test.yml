@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
 
-  lint:
+  Lint:
 
     runs-on: ubuntu-latest # The job runs on an Ubuntu machine
 
@@ -58,16 +58,16 @@ jobs:
       - name: change permission #change script permission
         run: chmod +x gradlew
 
-      - name: Build with Gradle #build the code
+      - name: Build with Gradle
         run: ./gradlew build
 
-      - name: SonarQube Scan
+      - name: SonarQube Scan  #soanr tool
         uses: sonarsource/sonarqube-scan-action@master
         with:
-          projectBaseDir: .
+          projectBaseDir: .   #The directory of the Gradle project to scan “Project in github”The directory of the Gradle project to scan “Project in github”
           args: >
             -Dsonar.java.binaries=build/classes/java/main
             -Dsonar.projectKey=bm-dashboard
         env:
-          SONAR_HOST_URL: "https://21d3-41-236-168-183.ngrok-free.app"
+          SONAR_HOST_URL: "https://21d3-41-236-168-183.ngrok-free.app" #  generate public domain name using NGROK
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
