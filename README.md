@@ -1,1 +1,3 @@
-# BM-test
+# My BM-Project start by creating a GitHub repository, then we start with code analysis by performing linting, unit testing, and SonarQube analysis on a Spring Boot project. 
+# Once first workflow completed successfully we start built the project to then generate a Docker image, which is pushed to a DockerHub registry. 
+# Finally, the image is pulled and deployed to an AKS cluster based on the branch the workflow is running on. The project's GitHub repository is located at https://github.com/hatem07956/BM, and the DockerHub registry URL for the project is https://hub.docker.com/repository/docker/hatem95/bm-image/general.
